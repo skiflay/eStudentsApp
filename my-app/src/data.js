@@ -22,3 +22,21 @@ export const sliderItems = [
         bg: "fcfled"
     }
 ]
+
+export const categories = [
+    {
+        id: 1,
+        img: "https://clipartspub.com/images/car-clipart-small-4.png",
+        title: "Used Cars"
+    },
+    {
+        id: 2,
+        img: "https://clipartspub.com/images/car-clipart-small-4.png",
+        title: "Used Bikes"
+    },
+    {
+        id: 3,
+        img: "https://blog.nihaojewelry.com/wp-content/uploads/2020/04/puffy-sleeves%EF%BB%BF.jpg",
+        title: "Used Computer Accessories"
+    }
+]
