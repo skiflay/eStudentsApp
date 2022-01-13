@@ -40,3 +40,37 @@ export const categories = [
         title: "Used Computer Accessories"
     }
 ]
+
+export const popularProducts = [
+    {
+        id: 1,
+        img: "https://fxposed.co.uk/Images/No%20Watermark/Jackets/CJ-99556/CJ-99556-TAN/IMG_1794.JPG",
+        title: "Used Cars"
+    },
+    {
+        id: 2,
+        img: "https://i5.walmartimages.com/asr/7d4c59c0-f824-4acc-908c-4d19968c8fd6_1.086c9ac36fdd7721ce9871fc15ffc753.jpeg",
+        title: "Used Bikes"
+    },
+    {
+        id: 3,
+        img: "https://th.bing.com/th/id/R.3d937d705adf45b2a9445223a8f4a926?rik=o%2bRx8PvKyfvZew&riu=http%3a%2f%2fwww.rustyzipper.com%2ffull%2f183771.jpg&ehk=0TUkl4KkN3ehZiVsEd3aLrks2sgWPmexlaFfNNnQLrk%3d&risl=&pid=ImgRaw&r=0",
+        title: "Used Computer Accessories"
+    },
+    {
+        id: 4,
+        img: "https://th.bing.com/th/id/R.299e54bd63edf87824f26749d626e81a?rik=E5y%2bGjGhSaQdmA&pid=ImgRaw&r=0",
+        title: "Used Cars"
+    },
+    {
+        id: 5,
+        img: "https://i.pinimg.com/originals/32/66/43/32664341ad36ae2c58ee7820e28306b6.jpg",
+        title: "Used Bikes"
+    },
+    {
+        id: 6,
+        img: "https://i.pinimg.com/originals/73/5e/51/735e51239349206981b93a69aee27b73.jpg",
+        title: "Used Computer Accessories"
+    }
+
+]
