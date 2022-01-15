@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose')
+const cors = require('cors')
 const dotenv = require('dotenv')
 const userRoute = require('./routes/user')
 const productRoute = require('./routes/product')
@@ -15,6 +16,7 @@ mongoose.connect(process.env.MONGO_URL)
 .catch((err)=> console.log(err))
 
 app.use(express.json())
+app.use(cors())
 
 app.use('/miu/auth', authRoute)
 app.use('/miu/users', userRoute )
