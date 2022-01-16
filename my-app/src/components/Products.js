@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
-import { popularProducts } from '../data'
 import Product from './Product'
 
 const Container = styled.div`
@@ -19,8 +18,9 @@ function Products({cat, filters, sort}) {
     useEffect(() => {
         const getProducts = async ()=>{
             try{
-            const res = await axios.get("http://localhost:5000/miu/products")
-            console.log(res)
+            const res = await axios.get(cat ? `http://localhost:5000/miu/products?category=${cat}`
+                                            : `http://localhost:5000/miu/products`)
+            setProducts(res.data)
             } catch(err){
     
             }     
@@ -28,11 +28,40 @@ function Products({cat, filters, sort}) {
         getProducts()
     }, [cat])
 
+    useEffect(()=>{
+        cat && setFilteredProducts(
+            products.filter((item)=>
+            Object.entries(filters).every(([key, value])=>
+             item[key].includes(value)
+             //console.log(item[key], value)
+            )
+        )
+      )
+    }, [products, cat, filters])
+    //console.log(filteredProducts)
+    useEffect(()=>{
+        if(sort==="newest"){
+           setFilteredProducts(prev=>
+               [...prev].sort((a,b)=> a.createdAt - b.createdAt)
+           ) 
+        } else if(sort==="asc"){
+            setFilteredProducts(prev=>
+                [...prev].sort((a,b)=> a.price - b.price)
+            )
+        } else {
+                setFilteredProducts(prev=>
+                    [...prev].sort((a,b)=> b.price - a.price)
+                ) 
+        }
+    }, [sort])
+    console.log(filteredProducts)
     return (
         <Container>
-            {popularProducts.map(item=>(
-                <Product item={item} key={item.id} />
-            ))}
+            {cat ? filteredProducts.map(item=> <Product item={item} key={item._id} />)
+                : products
+                .slice(0,8) // max of displaying 6 items
+                .map(item=>(<Product item={item} key={item._id} />)
+            )}
         </Container>
     )
 }

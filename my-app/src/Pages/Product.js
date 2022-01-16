@@ -1,11 +1,13 @@
 
 
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import {Remove, Add} from '@material-ui/icons'
+import { useLocation } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Newsletter from '../components/Newsletter'
+import axios from 'axios'
 
 
 const Container = styled.div``
@@ -36,12 +38,22 @@ const Price = styled.div`
     font-size: 40px;
 `
 // const FilterContainer = styled.div`
+//     width: 50%;
+//     margin: 30px 0px;
+//     display: flex;
+//     justify-content: space-between;
 // `
 // const Filter = styled.div`
+//     display: flex;
+//     align-item: center;
 // `
 // const FilterTitle = styled.span`
+//     font-size: 20px;
+//     font-weight: 200;
 // `
 // const FilterColor = styled.div`
+//     with: 20px;
+//     height: 20px;
 // `
 
 const AddContainer = styled.div`
@@ -74,17 +86,33 @@ const Button = styled.button`
 `
 
 function Product() {
+    const location = useLocation()
+    const id = location.pathname.split('/')[2]
+
+const [product, setProduct] = useState({})
+useEffect(()=>{
+    const getProduct = async ()=>{
+        try{
+            const res = await axios.get(`http://localhost:5000/miu/products/${id}`)
+            setProduct(res.data)
+        } catch(err){
+
+        }
+    }
+    getProduct()
+}, [id])
+
     return (
         <Container>
             <Navbar />
             <Wrapper>
                 <ImgContainer>
-                    <Image src="https://th.bing.com/th/id/R.32d1c9173420bec1ea594e5fbfc228cd?rik=%2brGoIZ4ZKLW56A&riu=http%3a%2f%2f4.bp.blogspot.com%2f-UNpoIrPZgtY%2fU9bAHZpEliI%2fAAAAAAAAm_U%2fuCHhdilxa7U%2fs1600%2fphoto%2b(22).JPG&ehk=Whnd8ITQuh4PXaUlZbEgKlFuFzsWlh6NG6eUjkyxMoM%3d&risl=&pid=ImgRaw&r=0" />
+                    <Image src={product.img} />
                 </ImgContainer>
                 <InfoContainer>
-                    <Title>Toyota Cars</Title>
-                    <Desc>This is Beautful .....</Desc>
-                    <Price> $5400</Price>
+                    <Title>{product.Title}</Title>
+                    <Desc>{product.desc}</Desc>
+                    <Price> {product.desc}</Price>
                    {/* <FilterContainer>
                        <Filter>
                          <FilterTitle>Color</FilterTitle>

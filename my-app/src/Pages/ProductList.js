@@ -47,7 +47,7 @@ function ProductList() {
     return (
         <Container>
             <Navbar />
-            <Title>Transportations</Title>
+            <Title>{cat}</Title>
             <FilterContainer>
                 <Filter>
                     <FilterText>Filter Products</FilterText>
@@ -55,10 +55,10 @@ function ProductList() {
                         <Option disabled >
                             color
                         </Option>
-                        <Option>White</Option>
-                        <Option>Black</Option>
-                        <Option>Red</Option>
-                        <Option>Blue</Option>
+                        <Option>white</Option>
+                        <Option>gray</Option>
+                        <Option>red</Option>
+                        <Option>blue</Option>
                     </Select>
                 </Filter>
                 <Filter>

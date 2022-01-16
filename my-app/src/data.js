@@ -27,19 +27,19 @@ export const categories = [
     {
         id: 1,
         img: "https://clipartspub.com/images/car-clipart-small-4.png",
-        title: "used Toyota Car",
+        title: "Car",
         cat: "car"
     },
     {
         id: 2,
         img: "https://clipartspub.com/images/car-clipart-small-4.png",
-        title: "used Monntain Bike",
+        title: "Bike",
         cat: "bike"
     },
     {
         id: 3,
         img: "https://blog.nihaojewelry.com/wp-content/uploads/2020/04/puffy-sleeves%EF%BB%BF.jpg",
-        title: "Keyboard with mouse",
+        title: "Clothes",
         cat: "computer"
     }
 ]
