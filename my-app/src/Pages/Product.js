@@ -21,7 +21,7 @@ const ImgContainer = styled.div`
 const Image = styled.img`
     width: 100%;
     height: 70vh;
-    object-fit: cover;
+    object-fit: fit;
 `
 const InfoContainer = styled.div`
     flex: 1;
@@ -29,9 +29,11 @@ const InfoContainer = styled.div`
 `
 const Title = styled.div`
     font-weight: 200;
+    font-size: 30px;
 `
 const Desc = styled.div`
     margin: 20px 0px;
+    font-size: 18px;
 `
 const Price = styled.div`
     font-weight: 200;
@@ -100,6 +102,7 @@ useEffect(()=>{
         }
     }
     getProduct()
+    console.log('Product', product)
 }, [id])
 
     return (
@@ -110,9 +113,9 @@ useEffect(()=>{
                     <Image src={product.img} />
                 </ImgContainer>
                 <InfoContainer>
-                    <Title>{product.Title}</Title>
-                    <Desc>{product.desc}</Desc>
-                    <Price> {product.desc}</Price>
+                    <Title>{product.title}</Title>
+                    <Desc> {product.desc}</Desc>
+                    <Price>${product.price}</Price>
                    {/* <FilterContainer>
                        <Filter>
                          <FilterTitle>Color</FilterTitle>

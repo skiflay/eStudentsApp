@@ -26,21 +26,21 @@ export const sliderItems = [
 export const categories = [
     {
         id: 1,
-        img: "https://clipartspub.com/images/car-clipart-small-4.png",
-        title: "Car",
-        cat: "car"
+        img: "https://th.bing.com/th/id/OIP.-HrafVJqk9xxpkrcnIcl9QHaFj?pid=ImgDet&w=1600&h=1200&rs=1",
+        title: "Transportation",
+        cat: "transport"
     },
     {
         id: 2,
-        img: "https://clipartspub.com/images/car-clipart-small-4.png",
-        title: "Bike",
-        cat: "bike"
+        img: "https://cdn.pixabay.com/photo/2013/07/12/15/04/monitor-149362_960_720.png",
+        title: "Comp-Accessories",
+        cat: "computer"
     },
     {
         id: 3,
         img: "https://blog.nihaojewelry.com/wp-content/uploads/2020/04/puffy-sleeves%EF%BB%BF.jpg",
-        title: "Clothes",
-        cat: "computer"
+        title: "cloth",
+        cat: "garment"
     }
 ]
 

@@ -42,7 +42,7 @@ const Icon = styled.div`
 `
 
 function Product({item}) {
-    //console.log('item', item)
+    console.log('item', item)
     return (
         <Container>
             <Image src={item.img}/>

@@ -27,7 +27,7 @@ function Products({cat, filters, sort}) {
         }      
         getProducts()
     }, [cat])
-
+    
     useEffect(()=>{
         cat && setFilteredProducts(
             products.filter((item)=>
