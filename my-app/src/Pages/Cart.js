@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import {Add, Remove} from '@material-ui/icons'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import {useSelector} from 'react-redux'
 
 const Container = styled.div``
 const Wrapper = styled.div`
@@ -104,6 +105,8 @@ const SummaryButton = styled.button`
 `
 
 function Cart() {
+    const cart = useSelector(state => state.cart)
+    //console.log(cart)
     return (
         <Container>
             <Navbar />
@@ -119,47 +122,34 @@ function Cart() {
                 </Top>
                 <Bottom>
                     <Info>
-                        <Product>
+                        {cart.products.map(product=>(
+                            <Product key= {product._id}>
                             <ProductDetail>
-                                <Image src="https://mspoweruser.com/wp-content/uploads/2016/12/Dell-monitor.jpg"/>
+                                <Image src={product.img}/>
                                 <Details>
-                                    <ProductName><b>Product:</b> PC Monitor</ProductName>
-                                    <ProductId><b>Id:</b> 123</ProductId>
+                                    <ProductName><b>Product:</b> {product.title} </ProductName>
+                                    <ProductId><b>Id:</b> {product._id}</ProductId>
                                 </Details>
                             </ProductDetail>
                             <PriceDetail>
                                 <ProductAmountContainer>
                                     <Add />
-                                    <ProductAmount>2</ProductAmount>
+                                    <ProductAmount>{product.quantity}</ProductAmount>
                                     <Remove />
                                 </ProductAmountContainer>
-                                <ProductPrice>$30</ProductPrice>
+                                <ProductPrice>${product.price * product.quantity}</ProductPrice>
                             </PriceDetail>
                         </Product>
+
+                        ))}
+                        
                         <hr />
-                        <Product>
-                            <ProductDetail>
-                                <Image src="https://cpc.farnell.com/productimages/standard/en_GB/CS32477-500.jpg"/>
-                                <Details>
-                                    <ProductName><b>Product:</b> PC Monitor</ProductName>
-                                    <ProductId><b>Id:</b> 123</ProductId>
-                                </Details>
-                            </ProductDetail>
-                            <PriceDetail>
-                                <ProductAmountContainer>
-                                    <Add />
-                                    <ProductAmount>1</ProductAmount>
-                                    <Remove />
-                                </ProductAmountContainer>
-                                <ProductPrice>$10</ProductPrice>
-                            </PriceDetail>
-                        </Product>
                     </Info>
                     <Summary>
                         <SummaryTitle>ORDER SUMMARY</SummaryTitle>
                         <SummaryItem>
-                            <SummaryItemText>Subtotal</SummaryItemText>
-                            <SummaryItemPrice>$80.00</SummaryItemPrice>
+                            <SummaryItemText>Total</SummaryItemText>
+                            <SummaryItemPrice>${cart.total}</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryButton>CHECK OUT NOW</SummaryButton>
                     </Summary>
