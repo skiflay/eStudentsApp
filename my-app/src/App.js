@@ -12,13 +12,13 @@ import { BrowserRouter as Router,  Switch,  Route, Redirect } from "react-router
 
 function App() {
   //const user = false;
-  const user = useSelector((state)=> state.user.currentUser)
+ const user = useSelector((state)=> state.user.currentUser)
   console.log(user)
   return (
     <Router>
       <Switch>
         <Route  exact path="/">
-          <Home/>
+          {user ? <Home/> : <Login/>}
         </Route>
         <Route  path="/products/:category">
           <ProductList/>

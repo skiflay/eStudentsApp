@@ -3,21 +3,21 @@ export const sliderItems = [
     {
         id: 1,
         img: "https://blog.nihaojewelry.com/wp-content/uploads/2020/04/puffy-sleeves%EF%BB%BF.jpg",
-        title: "MIU Title",
+        title: "MIU Popular Clothing",
         desc: "Excellent Condition with good price",
         bg: "f5fafd"
     },
     {
         id: 2,
         img: "https://blog.sellwoodcycle.com/wp-content/uploads/2014/02/used_bike_118502.jpg",
-        title: "MIU Bike",
+        title: "MIU Popular Bike",
         desc: "Great price ",
         bg: "fcfled"
     },
     {
         id: 3,
         img: "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/images/car-reviews/first-drives/legacy/bmw.jpg?itok=wL7hBcnA",
-        title: "MIU Car",
+        title: "MIU Popular Car",
         desc: "Great price with low mileage ",
         bg: "fcfled"
     }

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { login } from '../redux/apiCalls'
 import {useDispatch, useSelector} from 'react-redux'
 
+
 const Container = styled.div`
     width: 100vw;
     height: 100vh;
@@ -46,7 +47,7 @@ const Button = styled.button`
         cursor: not-allowed;
     }
 `
-const Link = styled.a`
+const LinkInfo = styled.a`
     margin: 5px 0px;
     font-size: 12px;
     text-decoration: underline;
@@ -78,8 +79,10 @@ function Login() {
                         LOGIN
                 </Button>
           {error && <Error>Something went wrong...</Error>}
-                <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-                <Link>CREATE A NEW ACCOUT</Link>
+                <LinkInfo>DO NOT YOU REMEMBER THE PASSWORD?</LinkInfo>
+                {/* <Link to='/register'> */}
+                <LinkInfo>CREATE A NEW ACCOUT</LinkInfo>
+                {/* </Link> */}
             </Form>
         </Wrapper>
     </Container>

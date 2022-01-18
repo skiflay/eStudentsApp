@@ -6,7 +6,8 @@ import {useSelector} from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const Container = styled.div`
-    height: 60px;
+    height: 80px;
+    background-color: lightgray;
 `
 const Wrapper = styled.div`
     padding: 10px 20px;
