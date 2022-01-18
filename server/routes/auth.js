@@ -42,7 +42,7 @@ router.post('/login', async (req, res)=>{
         password !== req.body.password && res.status(401).json('Wrong Credentials!')
         res.status(200).json({...user._doc, accessToken})
     }catch(err){
-        res.status(500).json(err)
+       console.log(err)
     }
 })
 
