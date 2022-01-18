@@ -54,7 +54,7 @@ function Products({cat, filters, sort}) {
                 ) 
         }
     }, [sort])
-    console.log(filteredProducts)
+    // console.log(filteredProducts)
     return (
         <Container>
             {cat ? filteredProducts.map(item=> <Product item={item} key={item._id} />)
