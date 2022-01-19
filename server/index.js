@@ -7,6 +7,7 @@ const productRoute = require('./routes/product')
 const authRoute = require('./routes/auth')
 const cartRoute = require('./routes/cart')
 const orderRoute = require('./routes/order')
+const paymentRoute = require('./routes/stripe')
 
 const app = express();
 
@@ -23,5 +24,6 @@ app.use('/miu/users', userRoute )
 app.use('/miu/products', productRoute)
 app.use('/miu/carts', cartRoute )
 app.use('/miu/orders', orderRoute )
+app.use('/miu/checkout', paymentRoute)
 
 app.listen(5000, ()=>console.log('Server is linstening on port 5000'))
