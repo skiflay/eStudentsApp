@@ -1,11 +1,16 @@
 
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import {Add, Remove} from '@material-ui/icons'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import {useSelector} from 'react-redux'
+import { useHistory } from "react-router";
+import StripeCheckout from 'react-stripe-checkout'
+import axios from 'axios'
 
+
+const KEY = process.env.REACT_APP_STRIPE
 const Container = styled.div``
 const Wrapper = styled.div`
     padding: 20px;
@@ -95,7 +100,7 @@ const SummaryItem = styled.div`
 `
 const SummaryItemText = styled.span``
 const SummaryItemPrice = styled.span``
-const SummaryButton = styled.button`
+const Button = styled.button`
     width: 100%;
     padding: 10px;
     background-color: black;
@@ -106,7 +111,31 @@ const SummaryButton = styled.button`
 
 function Cart() {
     const cart = useSelector(state => state.cart)
-    //console.log(cart)
+    const [stripeToken, setStripeToken] = useState(null)
+    const history = useHistory();
+   
+    const onToken = (token)=>{
+        console.log(token)
+        setStripeToken(token)
+    }
+   
+    useEffect(()=>{
+       const makeRequest = async ()=>{
+           try{
+            const res = await axios.post('http://localhost:5000/miu/checkout/payment',{
+                tokenId: stripeToken.id,  
+                amount: cart.total
+            })
+            console.log(res.data)
+             history.push('/success', {data: res.data, products: cart})
+           }catch(err){
+                console.log(err)
+           }
+       } 
+       makeRequest()
+    }, [stripeToken, cart.total, history])
+    
+
     return (
         <Container>
             <Navbar />
@@ -151,7 +180,18 @@ function Cart() {
                             <SummaryItemText>Total</SummaryItemText>
                             <SummaryItemPrice>${cart.total}</SummaryItemPrice>
                         </SummaryItem>
-                        <SummaryButton>CHECK OUT NOW</SummaryButton>
+                        <StripeCheckout
+                            name="MIU Online Shoping"
+                            image="https://avatars.githubusercontent.com/u/1486366?v=4"
+                            billingAddress
+                            shippingAddress
+                            description={`Your total is $${cart.total}`}
+                            amount={cart.total * 10000}
+                            token={onToken}
+                            stripeKey={KEY}
+                            >
+              <Button>CHECKOUT NOW</Button>
+            </StripeCheckout>
                     </Summary>
                 </Bottom>
             </Wrapper>

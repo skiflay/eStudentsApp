@@ -8,6 +8,7 @@ import Login from '../src/Pages/Login'
 import {useSelector} from 'react-redux'
 
 import { BrowserRouter as Router,  Switch,  Route, Redirect } from "react-router-dom";
+import { Success } from './Pages/Success';
 
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
         </Route>
         <Route  path="/cart">
           <Cart/>
+        </Route>
+        <Route  path="/success">
+          <Success/>
         </Route>
         <Route  path="/login">  {user ? <Redirect to="/" /> : <Login/>}  </Route>
         <Route  path="/register"> {user ? <Redirect to="/" /> : <Register/>}

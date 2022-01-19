@@ -10,6 +10,7 @@ const Container = styled.div`
     display: flex;
     position: relative;
     overflow: hidden;
+    background-color:#fcf5f5;
 `
 const Arrow = styled.div`
     width: 50px;
