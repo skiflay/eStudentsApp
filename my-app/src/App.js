@@ -1,13 +1,43 @@
 import React from 'react';
-import Home from './Pages/Home'
-// import Cart from './Pages/Cart';
+import Home from '../src/Pages/Home'
+import ProductList from '../src/Pages/ProductList'
+import Product from '../src/Pages/Product'
+import Cart from '../src/Pages/Cart'
+import Register from '../src/Pages/Register'
+import Login from '../src/Pages/Login'
+import {useSelector} from 'react-redux'
+
+import { BrowserRouter as Router,  Switch,  Route, Redirect } from "react-router-dom";
+import { Success } from './Pages/Success';
+
 
 function App() {
+  //const user = false;
+ const user = useSelector((state)=> state.user.currentUser)
+  console.log(user)
   return (
-    <div className="App">
-      <Home />
-      {/* <Cart /> */}
-    </div>
+    <Router>
+      <Switch>
+        <Route  exact path="/">
+          {user ? <Home/> : <Login/>}
+        </Route>
+        <Route  path="/products/:category">
+          <ProductList/>
+        </Route>
+        <Route  path="/product/:id">
+          <Product/>
+        </Route>
+        <Route  path="/cart">
+          <Cart/>
+        </Route>
+        <Route  path="/success">
+          <Success/>
+        </Route>
+        <Route  path="/login">  {user ? <Redirect to="/" /> : <Login/>}  </Route>
+        <Route  path="/register"> {user ? <Redirect to="/" /> : <Register/>}
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

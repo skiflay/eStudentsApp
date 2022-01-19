@@ -3,21 +3,21 @@ export const sliderItems = [
     {
         id: 1,
         img: "https://blog.nihaojewelry.com/wp-content/uploads/2020/04/puffy-sleeves%EF%BB%BF.jpg",
-        title: "MIU Title",
+        title: "MIU Popular Clothing",
         desc: "Excellent Condition with good price",
         bg: "f5fafd"
     },
     {
         id: 2,
         img: "https://blog.sellwoodcycle.com/wp-content/uploads/2014/02/used_bike_118502.jpg",
-        title: "MIU Bike",
+        title: "MIU Popular Bike",
         desc: "Great price ",
         bg: "fcfled"
     },
     {
         id: 3,
         img: "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/images/car-reviews/first-drives/legacy/bmw.jpg?itok=wL7hBcnA",
-        title: "MIU Car",
+        title: "MIU Popular Car",
         desc: "Great price with low mileage ",
         bg: "fcfled"
     }
@@ -26,18 +26,21 @@ export const sliderItems = [
 export const categories = [
     {
         id: 1,
-        img: "https://clipartspub.com/images/car-clipart-small-4.png",
-        title: "Used Cars"
+        img: "https://th.bing.com/th/id/OIP.-HrafVJqk9xxpkrcnIcl9QHaFj?pid=ImgDet&w=1600&h=1200&rs=1",
+        title: "Transportation",
+        cat: "transport"
     },
     {
         id: 2,
-        img: "https://clipartspub.com/images/car-clipart-small-4.png",
-        title: "Used Bikes"
+        img: "https://cdn.pixabay.com/photo/2013/07/12/15/04/monitor-149362_960_720.png",
+        title: "Comp-Accessories",
+        cat: "computer"
     },
     {
         id: 3,
         img: "https://blog.nihaojewelry.com/wp-content/uploads/2020/04/puffy-sleeves%EF%BB%BF.jpg",
-        title: "Used Computer Accessories"
+        title: "cloth",
+        cat: "garment"
     }
 ]
 

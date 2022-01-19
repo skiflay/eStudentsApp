@@ -1,3 +1,4 @@
+import React from 'react'
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons"
 import styled from 'styled-components'
 import { useState } from 'react'
@@ -9,6 +10,7 @@ const Container = styled.div`
     display: flex;
     position: relative;
     overflow: hidden;
+    background-color:#fcf5f5;
 `
 const Arrow = styled.div`
     width: 50px;
@@ -39,24 +41,25 @@ const Slide = styled.div`
     height: 100vh;
     display: flex;
     align-items: center;
+    margin: 20px;
 `
 const ImgContainer = styled.div`
     height: 100%;
     flex: 1;
 `
 const Image = styled.img`
-    height: 80%;
+    height: 70%;
 `
 const InfoContainer = styled.div`
     flex: 1;
     padding: 50px;
 `
 const Title = styled.h1`
-    font-size: 50px;
+    font-size: 30px;
 `
 const Desc = styled.p`
     margin: 50px 0px;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
     letter-spacing: 3px;
 `
